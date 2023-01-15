@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Viewer.Data;
 
@@ -11,9 +12,11 @@ using Viewer.Data;
 namespace Viewer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230115113436_fixedModels_2")]
+    partial class fixedModels2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,10 +49,10 @@ namespace Viewer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AuthorId")
+                    b.Property<int?>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GenreId")
+                    b.Property<int?>("GenreId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -91,7 +94,7 @@ namespace Viewer.Migrations
                     b.Property<int?>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReviewerId")
+                    b.Property<int?>("ReviewerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
@@ -129,15 +132,11 @@ namespace Viewer.Migrations
                 {
                     b.HasOne("Viewer.Models.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AuthorId");
 
                     b.HasOne("Viewer.Models.Genre", "Genre")
                         .WithMany("Books")
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GenreId");
 
                     b.Navigation("Author");
 
@@ -152,9 +151,7 @@ namespace Viewer.Migrations
 
                     b.HasOne("Viewer.Models.Reviewer", "Reviewer")
                         .WithMany("Reviews")
-                        .HasForeignKey("ReviewerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReviewerId");
 
                     b.Navigation("Reviewer");
                 });
