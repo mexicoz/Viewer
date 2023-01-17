@@ -15,7 +15,7 @@ namespace Viewer.Data
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Reviewer> Reviewers { get; set; }
-
+       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             AuthorConfig(modelBuilder);

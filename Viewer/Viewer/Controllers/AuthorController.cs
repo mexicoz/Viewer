@@ -31,6 +31,24 @@ namespace Viewer.Controllers
 
             return Ok(authors);
         }
+        [HttpGet("{authorId}/books")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Book>))]
+        [ProducesResponseType(400)]
+        public IActionResult GetBooksByAuthor(int authorId)
+        {
+            if (!_authorRepository.HasAuthor(authorId))
+            {
+                return NotFound();
+            }
+            var books = _authorRepository.GetBooksByAuthor(authorId);
+           
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok(books);
+        }
+
         [HttpGet("{authorId}")]
         [ProducesResponseType(200, Type = typeof(Author))]
         [ProducesResponseType(400)]
