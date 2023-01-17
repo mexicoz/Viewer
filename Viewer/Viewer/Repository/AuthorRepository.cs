@@ -41,7 +41,7 @@ namespace Viewer.Repository
 
         public ICollection<Book> GetBooksByAuthor(int authorId)
         {
-            return _context.Books.Where(c => c.Id == authorId).ToList();
+            return _context.Books.Where(c => c.Author.Id == authorId).ToList();
         }
 
         public bool HasAuthor(int authorId)
