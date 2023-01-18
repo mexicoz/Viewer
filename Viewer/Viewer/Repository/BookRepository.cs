@@ -29,7 +29,7 @@ namespace Viewer.Repository
 
         public Genre GetBookGenre(int bookId)
         {
-            return _context.Genres.Where(g => g.Id == bookId).FirstOrDefault();
+            return _context.Genres.Where(g => g.Books.Any(b => b.Id == bookId)).FirstOrDefault();
         }
 
         public ICollection<Book> GetBooks()

@@ -41,5 +41,21 @@ namespace Viewer.Controllers
             }
             return Ok(author);
         }
+        [HttpGet("{bookId}/genre")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Book>))]
+        [ProducesResponseType(400)]
+        public IActionResult GetGenreByBook(int bookId)
+        {
+            if (!_bookRepository.HasBook(bookId))
+            {
+                return NotFound();
+            }
+            var genre = _bookRepository.GetBookGenre(bookId);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok(genre);
+        }
     }
 }
