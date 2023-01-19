@@ -27,16 +27,16 @@ namespace Viewer.Controllers
             return Ok(genres);
         }
       
-        [HttpGet("{name}/books")]
+        [HttpGet("{genreId}/books")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Book>))]
         [ProducesResponseType(400)]
-        public IActionResult GetBooksByGenre(string name)
+        public IActionResult GetBooksByGenre(int genreId)
         {
-            if (!_genreRepository.HasGenre(name))
+            if (!_genreRepository.HasGenre(genreId))
             {
                 return NotFound();
             }
-            var books = _genreRepository.GetBooksByGenre(name);
+            var books = _genreRepository.GetBooksByGenre(genreId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

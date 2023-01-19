@@ -34,8 +34,10 @@ namespace Viewer
                                  },
                                  Reviews = new List<Review>()
                                  {
-                                     new Review { Title="Fantastic book",Text = "Some text",
-                                     Reviewer = new Reviewer(){ Name = "Some Author"} }
+                                     new Review { Title="Fantastic book",Text = "Some text about Consolidation",
+                                     Reviewer = new Reviewer(){ Name = "babaka"} },
+                                     new Review { Title="Sucks",Text = "Some bad text about sucks book Consolidation",
+                                     Reviewer = new Reviewer(){ Name = "freak"} }
                                  }
                              }
                          }
@@ -56,8 +58,8 @@ namespace Viewer
                                  },
                                  Reviews = new List<Review>()
                                  {
-                                     new Review { Title="Fantastic book",Text = "Some text",
-                                     Reviewer = new Reviewer(){ Name = "Some Author"} }
+                                     new Review { Title="Sadness",Text = "This is very sad story",
+                                     Reviewer = new Reviewer(){ Name = "Dude"} }
                                  }
                              }
                          }
@@ -74,12 +76,12 @@ namespace Viewer
                      
                                  Genre = new Genre()
                                  {
-                                     Name = "Fantastic"
+                                     Name = "Shooter"
                                  },
                                  Reviews = new List<Review>()
                                  {
-                                     new Review { Title="Sucks",Text = "Some text",
-                                     Reviewer = new Reviewer(){ Name = "Some Author"} }
+                                     new Review { Title="Sucks",Text = "It's sucks at all",
+                                     Reviewer = new Reviewer(){ Name = "Bear"} }
                                  }
                              },
                              new Book
@@ -88,18 +90,19 @@ namespace Viewer
                      
                                  Genre = new Genre()
                                  {
-                                     Name = "Fantastic"
+                                     Name = "Fantasy"
                                  },
                                  Reviews = new List<Review>()
                                  {
-                                     new Review { Title="Cool",Text = "Some text",
-                                     Reviewer = new Reviewer(){ Name = "Some Author"} }
+                                     new Review { Title="Cool",Text = "Nice story...",
+                                     Reviewer = new Reviewer(){ Name = "Digital bat"} }
                                  }
                              }
                          } 
                          
                      }
-                };              
+                };
+               
                 _dataContext.Authors.AddRange(authors);
                 _dataContext.SaveChanges();
 

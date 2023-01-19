@@ -5,7 +5,7 @@ namespace Viewer.Interface
     public interface IGenreRepository
     {
         ICollection<Genre> GetGenres();
-        ICollection<Book> GetBooksByGenre(string name);
+        ICollection<Book> GetBooksByGenre(int id);
         Genre GetGenre(int id);
         bool HasGenre(int genreId);
         bool HasGenre(string name);

@@ -14,9 +14,9 @@ namespace Viewer.Repository
             _context = context;
         }
 
-        public ICollection<Book> GetBooksByGenre(string name)
+        public ICollection<Book> GetBooksByGenre(int genreId)
         {
-            return _context.Books.Where(b => b.Genre.Name== name).ToList(); 
+            return _context.Books.Where(b => b.Genre.Id == genreId).ToList(); 
         }
 
         public Genre GetGenre(int id)
