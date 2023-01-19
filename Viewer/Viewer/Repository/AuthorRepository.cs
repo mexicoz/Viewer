@@ -47,6 +47,6 @@ namespace Viewer.Repository
         public bool HasAuthor(int authorId)
         {
             return _context.Authors.Any(p => p.Id == authorId);
-        }
+        }       
     }
 }

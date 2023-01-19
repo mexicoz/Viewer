@@ -66,6 +66,7 @@ namespace Viewer.Controllers
             }
             return Ok(author);
         }
+       
         [HttpGet("{authorId}/rating")]
         [ProducesResponseType(200, Type = typeof(decimal))]
         [ProducesResponseType(400)]
