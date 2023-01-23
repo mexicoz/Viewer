@@ -12,6 +12,13 @@ namespace Viewer.Repository
         {
             _context = context;
         }
+
+        public bool CreateBook(Book book)
+        {
+            _context.Add(book);
+            return Save();
+        }
+
         public Book GetBook(int id)
         {
             return _context.Books.Where(b => b.Id == id).FirstOrDefault();
@@ -45,6 +52,12 @@ namespace Viewer.Repository
         public bool HasBook(int bookId)
         {
             return _context.Books.Any(b => b.Id == bookId);
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }

@@ -9,5 +9,7 @@ namespace Viewer.Interface
         Author GetAuthor(int id);
         decimal GetAuthorRating(int authorId);
         bool HasAuthor(int authorId);
+        bool CreateAuthor(Author author);
+        bool Save();
     }
 }

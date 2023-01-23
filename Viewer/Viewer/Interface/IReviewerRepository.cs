@@ -8,5 +8,7 @@ namespace Viewer.Interface
         Reviewer GetReviewer(int id);
         ICollection<Review> GetReviewsByReviwer(int reviwerId);
         bool HasReviewer(int reviwerId);
+        bool CreateReviewer(Reviewer reviewer);
+        bool Save();
     }
 }

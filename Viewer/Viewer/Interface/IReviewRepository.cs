@@ -9,5 +9,7 @@ namespace Viewer.Interface
         public decimal GetReviewRating(int reviewId);
         public Reviewer GetReviewerByReview(int reviewId);
         public bool HasReview(int reviewId);
+        public bool CreateReview(Review review);
+        public bool Save();
     }
 }

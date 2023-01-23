@@ -13,6 +13,12 @@ namespace Viewer.Repository
             _context = context;
         }
 
+        public bool CreateAuthor(Author author)
+        {
+            _context.Add(author);
+            return Save();
+        }
+
         public Author GetAuthor(int id)
         {
             return _context.Authors.Where(a => a.Id == id).FirstOrDefault();
@@ -47,6 +53,12 @@ namespace Viewer.Repository
         public bool HasAuthor(int authorId)
         {
             return _context.Authors.Any(p => p.Id == authorId);
-        }       
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
     }
 }

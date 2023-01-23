@@ -11,5 +11,7 @@ namespace Viewer.Interface
         Author GetBookAuthor(int bookId);
         Genre GetBookGenre(int bookId);
         bool HasBook(int bookId);
+        bool CreateBook(Book book);
+        bool Save();
     }
 }

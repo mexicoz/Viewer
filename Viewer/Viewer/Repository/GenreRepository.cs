@@ -14,6 +14,12 @@ namespace Viewer.Repository
             _context = context;
         }
 
+        public bool CreateGenre(Genre genre)
+        {
+            _context.Add(genre);
+            return Save();
+        }
+
         public ICollection<Book> GetBooksByGenre(int genreId)
         {
             return _context.Books.Where(b => b.Genre.Id == genreId).ToList(); 
@@ -31,6 +37,12 @@ namespace Viewer.Repository
         public bool HasGenre(int genreId)
         {
             return _context.Genres.Any(g => g.Id == genreId);
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }

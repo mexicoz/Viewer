@@ -8,5 +8,7 @@ namespace Viewer.Interface
         ICollection<Book> GetBooksByGenre(int id);
         Genre GetGenre(int id);
         bool HasGenre(int genreId);
+        bool CreateGenre(Genre genre);
+        bool Save();
     }
 }
