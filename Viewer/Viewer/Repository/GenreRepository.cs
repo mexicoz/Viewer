@@ -32,9 +32,5 @@ namespace Viewer.Repository
         {
             return _context.Genres.Any(g => g.Id == genreId);
         }
-        public bool HasGenre(string name)
-        {
-            return _context.Genres.Any(g => g.Name == name);
-        }
     }
 }
